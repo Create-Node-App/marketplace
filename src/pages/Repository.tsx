@@ -144,7 +144,17 @@ const HomePage = () => {
             </button>
           ))}
         </FilterList>
-        {issues.map((issue) => (
+        {isFetchingIssues && (
+          <Layout>
+            <Icon>
+              <FaGithubAlt />
+            </Icon>
+            <Loading>
+              <FaSpinner />
+            </Loading>
+          </Layout>
+        )}
+        {!isFetchingIssues && issues.map((issue) => (
           <li key={String(issue.id)}>
             <a href={issue.html_url} target="_blank" rel="noopener noreferrer">
               <img src={issue.user?.avatar_url} alt={issue.user?.login} />
