@@ -8,14 +8,14 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 const commonPaths = require('./common-paths');
-const PUBLIC_URL = process.env.PUBLIC_URL || require("../package.json").homepage || '/';
+const PUBLIC_URL = process.env.PUBLIC_URL || require("../package.json").homepage || '';
 
 const config = {
   output: {
     filename: 'assets/js/[name].[chunkhash:8].bundle.js',
     chunkFilename: 'assets/js/[name].[chunkhash:8].js',
     path: commonPaths.outputServerPath,
-    publicPath: `${PUBLIC_URL}`
+    publicPath: `${PUBLIC_URL}/`
   },
   mode: 'production',
   optimization: {
@@ -53,7 +53,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: commonPaths.template,
       title: 'marketplace',
-      base: `${PUBLIC_URL}`,
+      base: `${PUBLIC_URL}/`,
       filename: path.resolve(__dirname, commonPaths.templatesOutputServerPath, 'index.html'),
       favicon: commonPaths.favicon,
     }),
