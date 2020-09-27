@@ -1,0 +1,22 @@
+{
+  "name": "marketplace",
+  "short_name": "marketplace",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "512x512",
+      "type": "image/x-icon"
+    }
+  ],
+  "background_color": "#4e0041",
+  "theme_color": "#4e0041",
+  "main.js": "https://Create-Node-App.github.io/marketplaceassets/js/main.f699909c.bundle.js",
+  "vendors~main.js": "https://Create-Node-App.github.io/marketplaceassets/js/vendors~main.e8b3e18e.js",
+  "assets/js/vendors~main.e8b3e18e.js.LICENSE.txt": "https://Create-Node-App.github.io/marketplaceassets/js/vendors~main.e8b3e18e.js.LICENSE.txt",
+  "favicon.ico": "https://Create-Node-App.github.io/marketplacefavicon.ico",
+  "index.html": "https://Create-Node-App.github.io/marketplaceindex.html",
+  "locales/en/translations.json": "https://Create-Node-App.github.io/marketplacelocales/en/translations.json",
+  "service-worker.js": "https://Create-Node-App.github.io/marketplaceservice-worker.js"
+}
