@@ -12,11 +12,11 @@
   ],
   "background_color": "#4e0041",
   "theme_color": "#4e0041",
-  "main.js": "https://Create-Node-App.github.io/marketplaceassets/js/main.a4be1ced.bundle.js",
-  "vendors~main.js": "https://Create-Node-App.github.io/marketplaceassets/js/vendors~main.e8b3e18e.js",
-  "assets/js/vendors~main.e8b3e18e.js.LICENSE.txt": "https://Create-Node-App.github.io/marketplaceassets/js/vendors~main.e8b3e18e.js.LICENSE.txt",
-  "favicon.ico": "https://Create-Node-App.github.io/marketplacefavicon.ico",
-  "index.html": "https://Create-Node-App.github.io/marketplaceindex.html",
-  "locales/en/translations.json": "https://Create-Node-App.github.io/marketplacelocales/en/translations.json",
-  "service-worker.js": "https://Create-Node-App.github.io/marketplaceservice-worker.js"
+  "main.js": "http://localhost:5000/marketplaceassets/js/main.9401369b.bundle.js",
+  "vendors~main.js": "http://localhost:5000/marketplaceassets/js/vendors~main.e8b3e18e.js",
+  "assets/js/vendors~main.e8b3e18e.js.LICENSE.txt": "http://localhost:5000/marketplaceassets/js/vendors~main.e8b3e18e.js.LICENSE.txt",
+  "favicon.ico": "http://localhost:5000/marketplacefavicon.ico",
+  "index.html": "http://localhost:5000/marketplaceindex.html",
+  "locales/en/translations.json": "http://localhost:5000/marketplacelocales/en/translations.json",
+  "service-worker.js": "http://localhost:5000/marketplaceservice-worker.js"
 }
