@@ -4,6 +4,7 @@ const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssWebpackPlugin = require('mini-css-extract-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const commonPaths = require('./common-paths');
 
@@ -37,6 +38,38 @@ const config = {
     new MiniCssWebpackPlugin({
       filename: 'assets/css/[name].css',
       chunkFilename: 'assets/css/[id].css',
+    }),
+    new ManifestPlugin({
+      publicPath: URL_BASE,
+      seed: {
+        name: "marketplace",
+        short_name: "marketplace",
+        start_url: "index.html",
+        display: "standalone",
+        icons: [
+          {
+            src: "favicon.ico",
+            sizes: "512x512",
+            type: "image/x-icon"
+          }
+        ],
+        background_color: "#4e0041",
+        theme_color: "#4e0041"
+      },
+      generate: (seed, files, entrypoints) => {
+        const manifestFiles = files.reduce((manifest, file) => {
+          manifest[file.name] = file.path;
+          return manifest;
+        }, seed);
+        const entrypointFiles = entrypoints.main.filter(
+          fileName => !fileName.endsWith('.map')
+        );
+
+        return {
+          files: manifestFiles,
+          entrypoints: entrypointFiles,
+        };
+      },
     }),
     new HtmlWebpackPlugin({
       template: commonPaths.template,

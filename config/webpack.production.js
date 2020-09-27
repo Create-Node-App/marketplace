@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssWebpackPlugin = require('mini-css-extract-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const commonPaths = require('./common-paths');
 const PUBLIC_URL = process.env.PUBLIC_URL || require("../package.json").homepage || '';
@@ -40,13 +41,45 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      PUBLIC_URL: JSON.stringify(PUBLIC_URL),
+      'process.env.PUBLIC_URL': JSON.stringify(PUBLIC_URL),
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production', // use 'production' unless process.env.NODE_ENV is defined
     }),
     new Dotenv({
       path: commonPaths.prodEnv,
+    }),
+    new ManifestPlugin({
+      publicPath: PUBLIC_URL,
+      seed: {
+        name: "marketplace",
+        short_name: "marketplace",
+        start_url: "index.html",
+        display: "standalone",
+        icons: [
+          {
+            src: "favicon.ico",
+            sizes: "512x512",
+            type: "image/x-icon"
+          }
+        ],
+        background_color: "#4e0041",
+        theme_color: "#4e0041"
+      },
+      generate: (seed, files, entrypoints) => {
+        const manifestFiles = files.reduce((manifest, file) => {
+          manifest[file.name] = file.path;
+          return manifest;
+        }, seed);
+        const entrypointFiles = entrypoints.main.filter(
+          fileName => !fileName.endsWith('.map')
+        );
+
+        return {
+          files: manifestFiles,
+          entrypoints: entrypointFiles,
+        };
+      },
     }),
     new MiniCssWebpackPlugin({
       filename: 'assets/css/[name].[hash].css',

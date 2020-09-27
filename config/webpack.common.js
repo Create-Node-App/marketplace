@@ -4,7 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssWebpackPlugin = require('mini-css-extract-plugin')
 const AsyncChunkNames = require('webpack-async-chunk-names-plugin')
-const ManifestPlugin = require('webpack-manifest-plugin');
 
 const commonPaths = require('./common-paths');
 
@@ -116,23 +115,6 @@ const config = {
   },
   plugins: [
     new AsyncChunkNames(),
-    new ManifestPlugin({
-      seed: {
-        name: "marketplace",
-        short_name: "marketplace",
-        start_url: "index.html",
-        display: "standalone",
-        icons: [
-          {
-            src: "favicon.ico",
-            sizes: "512x512",
-            type: "image/x-icon"
-          }
-        ],
-        background_color: "#4e0041",
-        theme_color: "#4e0041"
-      },
-    }),
     new CleanWebpackPlugin({
       root: commonPaths.root,
     }),
