@@ -10,13 +10,9 @@ import AppRoutes from 'app/routes/AppRoutes';
 
 import 'app/i18n';
 
-/**
- * @todo: use PUBLIC_URL instead
- */
-
 const App = () => (
   <Suspense fallback={<Loading />}>
-    <BrowserRouter basename={process.env.NODE_ENV === 'development' ? undefined : '/marketplace'}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <GlobalStyles />
       <MomentLocale />
       <AppRoutes />
