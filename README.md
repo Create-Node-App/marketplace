@@ -1,4 +1,4 @@
-# marketplace Frontend
+# Marketplace
 
 This project was generated using [React Webpack Starter](https://github.com/Create-Node-App/create-react-webpack-app).
 
