@@ -1,4 +1,10 @@
 {
   "title": "GitHub Extensions",
-  "filter": "Filter..."
+  "filter": "Filter...",
+  "back-to-repos": "Back to Extensions",
+  "issues": "Issues",
+  "open": "Open",
+  "closed": "Closed",
+  "back": "Back",
+  "next": "Next"
 }

@@ -140,7 +140,7 @@ const HomePage = () => {
               key={filter.state}
               onClick={() => handleFilters(index)}
             >
-              {filter.label}
+              {t(filter.label)}
             </button>
           ))}
         </FilterList>
