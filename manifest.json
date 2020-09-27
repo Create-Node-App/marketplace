@@ -12,11 +12,11 @@
   ],
   "background_color": "#4e0041",
   "theme_color": "#4e0041",
-  "main.js": "https://Create-Node-App.github.io/marketplaceassets/js/main.6485f2d5.bundle.js",
-  "vendors~main.js": "https://Create-Node-App.github.io/marketplaceassets/js/vendors~main.e8b3e18e.js",
-  "assets/js/vendors~main.e8b3e18e.js.LICENSE.txt": "https://Create-Node-App.github.io/marketplaceassets/js/vendors~main.e8b3e18e.js.LICENSE.txt",
-  "favicon.ico": "https://Create-Node-App.github.io/marketplacefavicon.ico",
-  "index.html": "https://Create-Node-App.github.io/marketplaceindex.html",
-  "locales/en/translations.json": "https://Create-Node-App.github.io/marketplacelocales/en/translations.json",
-  "service-worker.js": "https://Create-Node-App.github.io/marketplaceservice-worker.js"
+  "main.js": "/assets/js/main.39047213.bundle.js",
+  "vendors~main.js": "/assets/js/vendors~main.e8b3e18e.js",
+  "assets/js/vendors~main.e8b3e18e.js.LICENSE.txt": "/assets/js/vendors~main.e8b3e18e.js.LICENSE.txt",
+  "favicon.ico": "/favicon.ico",
+  "index.html": "/index.html",
+  "locales/en/translations.json": "/locales/en/translations.json",
+  "service-worker.js": "/service-worker.js"
 }
