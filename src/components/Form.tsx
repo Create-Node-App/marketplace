@@ -59,7 +59,6 @@ export const ErrorMessage = styled.span`
 `;
 
 export const List = styled.ul`
-  margin-top: 30px;
   list-style-type: none;
   font-size: 16px;
   li {
@@ -70,15 +69,6 @@ export const List = styled.ul`
     align-items: center;
     & + li {
       border-top: 1px solid #eee;
-    }
-    button {
-      color: #999;
-      background: none;
-      border: 0;
-      padding: 6px 0 6px 16px;
-      &:hover {
-        color: #7159c1;
-      }
     }
   }
 `;
