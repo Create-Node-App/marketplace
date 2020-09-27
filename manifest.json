@@ -1,22 +1,28 @@
 {
-  "name": "marketplace",
-  "short_name": "marketplace",
-  "start_url": "index.html",
-  "display": "standalone",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "512x512",
-      "type": "image/x-icon"
-    }
-  ],
-  "background_color": "#4e0041",
-  "theme_color": "#4e0041",
-  "main.js": "/marketplaceassets/js/main.dfb49aaf.bundle.js",
-  "vendors~main.js": "/marketplaceassets/js/vendors~main.e8b3e18e.js",
-  "assets/js/vendors~main.e8b3e18e.js.LICENSE.txt": "/marketplaceassets/js/vendors~main.e8b3e18e.js.LICENSE.txt",
-  "favicon.ico": "/marketplacefavicon.ico",
-  "index.html": "/marketplaceindex.html",
-  "locales/en/translations.json": "/marketplacelocales/en/translations.json",
-  "service-worker.js": "/marketplaceservice-worker.js"
+  "files": {
+    "name": "marketplace",
+    "short_name": "marketplace",
+    "start_url": "index.html",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "favicon.ico",
+        "sizes": "512x512",
+        "type": "image/x-icon"
+      }
+    ],
+    "background_color": "#4e0041",
+    "theme_color": "#4e0041",
+    "main.js": "/marketplaceassets/js/main.69acbc8c.bundle.js",
+    "vendors~main.js": "/marketplaceassets/js/vendors~main.e8b3e18e.js",
+    "assets/js/vendors~main.e8b3e18e.js.LICENSE.txt": "/marketplaceassets/js/vendors~main.e8b3e18e.js.LICENSE.txt",
+    "favicon.ico": "/marketplacefavicon.ico",
+    "index.html": "/marketplaceindex.html",
+    "locales/en/translations.json": "/marketplacelocales/en/translations.json",
+    "service-worker.js": "/marketplaceservice-worker.js"
+  },
+  "entrypoints": [
+    "assets/js/vendors~main.e8b3e18e.js",
+    "assets/js/main.69acbc8c.bundle.js"
+  ]
 }
