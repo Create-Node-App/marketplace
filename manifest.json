@@ -12,11 +12,11 @@
   ],
   "background_color": "#4e0041",
   "theme_color": "#4e0041",
-  "main.js": "http://localhost:5000/marketplaceassets/js/main.9401369b.bundle.js",
-  "vendors~main.js": "http://localhost:5000/marketplaceassets/js/vendors~main.e8b3e18e.js",
-  "assets/js/vendors~main.e8b3e18e.js.LICENSE.txt": "http://localhost:5000/marketplaceassets/js/vendors~main.e8b3e18e.js.LICENSE.txt",
-  "favicon.ico": "http://localhost:5000/marketplacefavicon.ico",
-  "index.html": "http://localhost:5000/marketplaceindex.html",
-  "locales/en/translations.json": "http://localhost:5000/marketplacelocales/en/translations.json",
-  "service-worker.js": "http://localhost:5000/marketplaceservice-worker.js"
+  "main.js": "/marketplaceassets/js/main.aec79980.bundle.js",
+  "vendors~main.js": "/marketplaceassets/js/vendors~main.e8b3e18e.js",
+  "assets/js/vendors~main.e8b3e18e.js.LICENSE.txt": "/marketplaceassets/js/vendors~main.e8b3e18e.js.LICENSE.txt",
+  "favicon.ico": "/marketplacefavicon.ico",
+  "index.html": "/marketplaceindex.html",
+  "locales/en/translations.json": "/marketplacelocales/en/translations.json",
+  "service-worker.js": "/marketplaceservice-worker.js"
 }
