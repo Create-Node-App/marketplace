@@ -1,22 +1,12 @@
 import React, { useEffect, useState, ChangeEvent } from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { FaGithubAlt, FaSpinner, FaSearch, FaRegFileAlt } from 'react-icons/fa';
-
+import { FaGithubAlt, FaSpinner, FaSearch } from 'react-icons/fa';
 import { filterByValue } from 'app/helpers/array';
 import { useMarketplaceContent, RepositoryContent } from 'app/hooks/market-hook';
-
+import { Loading } from 'app/components/Loading';
+import { Form, SubmitButton, List, ErrorMessage } from 'app/components/Extensions/Form.styled';
+import { ExtensionsOwner } from 'app/components/Extensions';
 import Layout, { Icon } from 'app/components/Layout';
-import { Form, SubmitButton, List, ErrorMessage } from 'app/components/Form';
-import { Loading, Owner, OwnerProfile, RepoInfo } from 'app/components/Repository';
-
-const repoUrl = (repo: RepositoryContent) => {
-  if (repo.branch) {
-    return `/${repo.source}/${encodeURIComponent(`${repo.name}@${repo.branch}`)}`;
-  }
-
-  return `/${repo.source}/${encodeURIComponent(repo.name)}`;
-};
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -58,29 +48,10 @@ const HomePage = () => {
       )}
 
       <List>
-        {filteredRepositories.map((repo: RepositoryContent) => {
-          const url = repoUrl(repo);
-
+        {filteredRepositories.map((repository: RepositoryContent) => {
           return (
-            <li key={url}>
-              <Owner>
-                <OwnerProfile>
-                  <Link to={url}>{repo.img && <img src={repo.img} alt={repo.img} />}</Link>
-                </OwnerProfile>
-                <RepoInfo>
-                  <h1>
-                    <Link to={url}>{repo.title}</Link>
-                  </h1>
-                  <div>
-                    {repo.license && (
-                      <span>
-                        <FaRegFileAlt /> {repo.license}
-                      </span>
-                    )}
-                  </div>
-                  <p>{repo.description}</p>
-                </RepoInfo>
-              </Owner>
+            <li key={`${repository.name}&${repository.branch}`}>
+              <ExtensionsOwner repository={repository} />
             </li>
           );
         })}

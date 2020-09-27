@@ -1,21 +1,14 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { FaGithubAlt, FaSpinner, FaRegFileAlt, FaStar } from 'react-icons/fa';
-import { GoRepoForked, GoArrowLeft, GoArrowRight } from 'react-icons/go';
+import { FaGithubAlt, FaSpinner } from 'react-icons/fa';
 
-import { useRepository, useIssues } from 'app/hooks/git-hook';
+import { useRepository, useIssues, useReadme } from 'app/hooks/git-hook';
 import Layout, { Icon } from 'app/components/Layout';
-import {
-  Loading,
-  Owner,
-  OwnerProfile,
-  RepoInfo,
-  IssueList,
-  FilterList,
-  IssueLabel,
-  PageNav,
-} from 'app/components/Repository';
+import { Markdown } from 'app/components/Markdown';
+import { RepositoryOwner } from 'app/components/Repository';
+import Loading from 'app/components/Loading';
+import { RepositoryIssues } from 'app/components/Repository/Issues';
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -31,18 +24,20 @@ const HomePage = () => {
   const [repoName, branch] = decodeURIComponent(repo).split('@');
 
   const { repository, fetchRepository, error: repoError, isFetching: isFetchingRepo } = useRepository(source, repoName);
+  const { readme, fetchReadme, error: readmeError, isFetching: isFetchingReadme } = useReadme(source, repoName, branch);
   const { issues, fetchIssues, error: issuesError, isFetching: isFetchingIssues } = useIssues(source, repoName);
 
   useEffect(() => {
     fetchRepository && fetchRepository();
+    fetchReadme && fetchReadme();
     fetchIssues &&
       fetchIssues({
         params: {
           state: filters.find((filter) => filter.active)?.state,
-          per_page: 4,
+          per_page: 5,
         },
       });
-  }, [fetchRepository, fetchIssues]);
+  }, [fetchRepository, fetchReadme, fetchIssues]);
 
   const loadFilters = useCallback(
     (filterIndex, page) => {
@@ -58,7 +53,11 @@ const HomePage = () => {
     [fetchIssues],
   );
 
-  const handleFilters = (filterIndex: number) => {
+  const handleReadme = () => {
+    fetchReadme && fetchReadme();
+  };
+
+  const handleFilter = (filterIndex: number) => {
     setFilterIndex(filterIndex);
     loadFilters(filterIndex, page);
   };
@@ -88,102 +87,19 @@ const HomePage = () => {
         <FaGithubAlt />
       </Icon>
 
-      <Owner>
-        <div>
-          <Link to="/">
-            <GoArrowLeft /> {t('back-to-repos')}
-          </Link>
-        </div>
-        <OwnerProfile>
-          <a href={repository.html_url} target="_blank" rel="noopener noreferrer">
-            <img src={repository.owner?.avatar_url} alt={repository.owner?.login} />
-          </a>
-          <h2>{repository.owner?.login}</h2>
-        </OwnerProfile>
-        <RepoInfo>
-          <h1>
-            <a href={repository.html_url} target="_blank" rel="noopener noreferrer">
-              {repository.name}
-            </a>
-          </h1>
-          <div>
-            {repository.license && (
-              <span>
-                <FaRegFileAlt /> {repository.license.name}
-              </span>
-            )}
-            {repository.stargazers_count !== 0 && (
-              <span>
-                <FaStar />
-                {`${repository.stargazers_count} ${repository.stargazers_count === 1 ? 'star' : 'stars'}`}
-              </span>
-            )}
-            {repository.forks !== 0 && (
-              <span>
-                <GoRepoForked />
-                {`${Number(repository.forks_count).toLocaleString()} ${
-                  repository.forks_count === 1 ? 'fork' : 'forks'
-                }`}
-              </span>
-            )}
-          </div>
-          <p>{repository.description}</p>
-        </RepoInfo>
-      </Owner>
+      <RepositoryOwner repository={repository} />
 
-      <IssueList>
-        <FilterList>
-          {filters.map((filter, index) => (
-            <button
-              type="button"
-              className={filterIndex === index ? 'active' : undefined}
-              key={filter.state}
-              onClick={() => handleFilters(index)}
-            >
-              {t(filter.label)}
-            </button>
-          ))}
-        </FilterList>
-        {isFetchingIssues && (
-          <Layout>
-            <Icon>
-              <FaGithubAlt />
-            </Icon>
-            <Loading>
-              <FaSpinner />
-            </Loading>
-          </Layout>
-        )}
-        {!isFetchingIssues &&
-          issues.map((issue) => (
-            <li key={String(issue.id)}>
-              <a href={issue.html_url} target="_blank" rel="noopener noreferrer">
-                <img src={issue.user?.avatar_url} alt={issue.user?.login} />
-                <div>
-                  <strong>
-                    <span>{issue.title}</span>
-                    {issue.labels?.map((label) => (
-                      <IssueLabel key={String(label.id)} color={label.color}>
-                        {label.name}
-                      </IssueLabel>
-                    ))}
-                  </strong>
-                  <p> {issue.user?.login} </p>
-                </div>
-              </a>
-            </li>
-          ))}
-        <PageNav>
-          <button type="button" disabled={page < 2} onClick={() => handlePage('back')}>
-            <GoArrowLeft />
-            {t('back')}
-          </button>
-          <button type="button" onClick={() => handlePage('next')}>
-            {t('next')}
-            <GoArrowRight />
-          </button>
-        </PageNav>
-      </IssueList>
+      <Markdown source={readme} />
+
+      <RepositoryIssues
+        issues={issues}
+        filters={filters}
+        filterIndex={filterIndex}
+        onFilterChange={handleFilter}
+        onPageChange={handlePage}
+        page={page}
+        isFetching={isFetchingIssues}
+      />
     </Layout>
   );
 };

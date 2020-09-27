@@ -6,6 +6,10 @@ const API_BASE_URL = {
   github: GITHUB_API,
 };
 
+const BASE_URL = {
+  github: 'https://raw.githubusercontent.com',
+};
+
 export interface RepositoryContent {
   name?: string;
   description?: string;
@@ -56,8 +60,8 @@ export const useRepository = (source: 'github', name: string) => {
 export const useReadme = (source: 'github', name: string, branch = 'master') => {
   const { isFetching, data, error, fetch } = useRequest<string>({
     initialValue: '',
-    baseURL: API_BASE_URL[source],
-    url: `repos/${name}/blob/${branch}/README.md`,
+    baseURL: BASE_URL[source],
+    url: `${name}/${branch}/README.md`,
   });
 
   return {
