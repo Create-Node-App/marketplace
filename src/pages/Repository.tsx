@@ -154,24 +154,25 @@ const HomePage = () => {
             </Loading>
           </Layout>
         )}
-        {!isFetchingIssues && issues.map((issue) => (
-          <li key={String(issue.id)}>
-            <a href={issue.html_url} target="_blank" rel="noopener noreferrer">
-              <img src={issue.user?.avatar_url} alt={issue.user?.login} />
-              <div>
-                <strong>
-                  <span>{issue.title}</span>
-                  {issue.labels?.map((label) => (
-                    <IssueLabel key={String(label.id)} color={label.color}>
-                      {label.name}
-                    </IssueLabel>
-                  ))}
-                </strong>
-                <p> {issue.user?.login} </p>
-              </div>
-            </a>
-          </li>
-        ))}
+        {!isFetchingIssues &&
+          issues.map((issue) => (
+            <li key={String(issue.id)}>
+              <a href={issue.html_url} target="_blank" rel="noopener noreferrer">
+                <img src={issue.user?.avatar_url} alt={issue.user?.login} />
+                <div>
+                  <strong>
+                    <span>{issue.title}</span>
+                    {issue.labels?.map((label) => (
+                      <IssueLabel key={String(label.id)} color={label.color}>
+                        {label.name}
+                      </IssueLabel>
+                    ))}
+                  </strong>
+                  <p> {issue.user?.login} </p>
+                </div>
+              </a>
+            </li>
+          ))}
         <PageNav>
           <button type="button" disabled={page < 2} onClick={() => handlePage('back')}>
             <GoArrowLeft />
