@@ -2,7 +2,7 @@
   "name": "marketplace",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Create-Node-App.github.io/marketplace",
+  "homepage": "http://localhost:5000/marketplace",
   "browserslist": {
     "production": [
       ">0.2%",

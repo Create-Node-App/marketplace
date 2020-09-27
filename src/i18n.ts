@@ -3,6 +3,8 @@ import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
+console.log(process.env);
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
@@ -17,10 +19,10 @@ i18n
       // returning a path:
       // function(lngs, namespaces) { return customPath; }
       // the returned path will interpolate lng, ns if provided like giving a static path
-      loadPath: `${process.env.PUBLIC_URL}/locales/{{lng}}/{{ns}}.json`,
+      loadPath: `${process.env.PUBLIC_URL || ''}/locales/{{lng}}/{{ns}}.json`,
 
       // path to post missing resources
-      addPath: `${process.env.PUBLIC_URL}/locales/{{lng}}/{{ns}}`,
+      addPath: `${process.env.PUBLIC_URL || ''}/locales/{{lng}}/{{ns}}`,
     },
 
     // have a common namespace used around the full app
