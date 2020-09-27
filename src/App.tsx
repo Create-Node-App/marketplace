@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { FaSpinner } from 'react-icons/fa';
 
 import 'app/theme';
 
@@ -11,7 +12,13 @@ import AppRoutes from 'app/routes/AppRoutes';
 import 'app/i18n';
 
 const App = () => (
-  <Suspense fallback={<Loading />}>
+  <Suspense
+    fallback={
+      <Loading>
+        <FaSpinner />
+      </Loading>
+    }
+  >
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <GlobalStyles />
       <MomentLocale />

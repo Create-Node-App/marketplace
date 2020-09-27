@@ -1,17 +1,28 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { FaRegFileAlt, FaStar } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
+import { FaRegFileAlt, FaStar, FaSpinner } from 'react-icons/fa';
+import { GoArrowLeft, GoRepoForked } from 'react-icons/go';
 import { RepositoryContent } from 'app/hooks/git-hook';
 import { Owner, OwnerProfile, RepoInfo } from 'app/components/Repository/Repository.styled';
-import { GoArrowLeft, GoRepoForked } from 'react-icons/go';
-import { useTranslation } from 'react-i18next';
+import Loading from 'app/components/Loading';
 
 export interface RepositoryOwnerProps {
   repository: RepositoryContent;
+  isFetching: boolean;
+  error: Error | null;
 }
 
-export const RepositoryOwner: FC<RepositoryOwnerProps> = ({ repository }) => {
+export const RepositoryOwner: FC<RepositoryOwnerProps> = ({ repository, isFetching, error }) => {
   const { t } = useTranslation();
+
+  if (isFetching) {
+    return (
+      <Loading>
+        <FaSpinner />
+      </Loading>
+    );
+  }
 
   return (
     <Owner>

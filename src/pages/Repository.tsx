@@ -10,7 +10,7 @@ import { RepositoryOwner } from 'app/components/Repository';
 import Loading from 'app/components/Loading';
 import { RepositoryIssues } from 'app/components/Repository/Issues';
 
-const HomePage = () => {
+const RepositoryPage = () => {
   const { t } = useTranslation();
   const { source, repo } = useParams<{ source: 'github'; repo: string }>();
   const [filterIndex, setFilterIndex] = useState<number>(0);
@@ -87,7 +87,7 @@ const HomePage = () => {
         <FaGithubAlt />
       </Icon>
 
-      <RepositoryOwner repository={repository} />
+      <RepositoryOwner error={repoError} isFetching={isFetchingRepo} repository={repository} />
 
       <Markdown source={readme} />
 
@@ -99,9 +99,10 @@ const HomePage = () => {
         onPageChange={handlePage}
         page={page}
         isFetching={isFetchingIssues}
+        error={issuesError}
       />
     </Layout>
   );
 };
 
-export default HomePage;
+export default RepositoryPage;
