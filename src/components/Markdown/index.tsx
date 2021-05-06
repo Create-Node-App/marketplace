@@ -9,7 +9,7 @@ export interface MarkdownProps {
 export const Markdown: FC<MarkdownProps> = ({ source = '' }) => {
   marked.setOptions({
     renderer: new marked.Renderer(),
-    highlight: function (code, language) {
+    highlight: (code: string, language: string) => {
       const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
       return hljs.highlight(validLanguage, code).value;
     },
