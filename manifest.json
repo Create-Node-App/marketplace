@@ -13,16 +13,16 @@
     ],
     "background_color": "#4e0041",
     "theme_color": "#4e0041",
-    "main.js": "/marketplaceassets/js/main.46276d14.bundle.js",
-    "vendors~main.js": "/marketplaceassets/js/vendors~main.8ef418fd.js",
-    "assets/js/vendors~main.8ef418fd.js.LICENSE.txt": "/marketplaceassets/js/vendors~main.8ef418fd.js.LICENSE.txt",
-    "favicon.ico": "/marketplacefavicon.ico",
-    "index.html": "/marketplaceindex.html",
-    "locales/en/translations.json": "/marketplacelocales/en/translations.json",
-    "service-worker.js": "/marketplaceservice-worker.js"
+    "main.js": "assets/js/main.cb395587.bundle.js",
+    "vendors~main.js": "assets/js/vendors~main.8ef418fd.js",
+    "assets/js/vendors~main.8ef418fd.js.LICENSE.txt": "assets/js/vendors~main.8ef418fd.js.LICENSE.txt",
+    "favicon.ico": "favicon.ico",
+    "index.html": "index.html",
+    "locales/en/translations.json": "locales/en/translations.json",
+    "service-worker.js": "service-worker.js"
   },
   "entrypoints": [
     "assets/js/vendors~main.8ef418fd.js",
-    "assets/js/main.46276d14.bundle.js"
+    "assets/js/main.cb395587.bundle.js"
   ]
 }
