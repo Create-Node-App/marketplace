@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import 'app/i18n';
 import * as serviceWorker from 'app/service-worker';
 import App from 'app/App';
 

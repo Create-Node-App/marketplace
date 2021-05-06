@@ -9,8 +9,6 @@ import MomentLocale from 'app/components/MomentLocale';
 import GlobalStyles from 'app/components/GlobalStyles';
 import AppRoutes from 'app/routes/AppRoutes';
 
-import 'app/i18n';
-
 const App: FC = () => (
   <Suspense
     fallback={

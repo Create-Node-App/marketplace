@@ -3,15 +3,13 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const MiniCssWebpackPlugin = require('mini-css-extract-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const ManifestPlugin = require('webpack-manifest-plugin');
 
 const commonPaths = require('./common-paths');
 const PUBLIC_URL = process.env.PUBLIC_URL || require("../package.json").homepage || '';
-
-console.log(`Using PUBLIC_URL: ${PUBLIC_URL}`);
 
 const config = {
   output: {
@@ -22,6 +20,7 @@ const config = {
   },
   mode: 'production',
   optimization: {
+    noEmitOnErrors: true,
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
@@ -34,14 +33,13 @@ const config = {
     minimize: true,
     minimizer: [
       new TerserWebpackPlugin({
-        cache: true,
         parallel: true,
       }),
     ],
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.PUBLIC_URL': JSON.stringify(PUBLIC_URL),
+      PUBLIC_URL: JSON.stringify(PUBLIC_URL),
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production', // use 'production' unless process.env.NODE_ENV is defined
@@ -49,7 +47,18 @@ const config = {
     new Dotenv({
       path: commonPaths.prodEnv,
     }),
-    new ManifestPlugin({
+    new MiniCssWebpackPlugin({
+      filename: 'assets/css/[name].[hash].css',
+      chunkFilename: 'assets/css/[id].[hash].css',
+    }),
+    new HtmlWebpackPlugin({
+      template: commonPaths.template,
+      title: 'marketplace',
+      base: `${PUBLIC_URL}`,
+      filename: path.resolve(__dirname, commonPaths.templatesOutputServerPath, 'index.html'),
+      favicon: commonPaths.favicon,
+    }),
+    new WebpackManifestPlugin({
       publicPath: PUBLIC_URL,
       seed: {
         name: "marketplace",
@@ -81,17 +90,6 @@ const config = {
         };
       },
     }),
-    new MiniCssWebpackPlugin({
-      filename: 'assets/css/[name].[hash].css',
-      chunkFilename: 'assets/css/[id].[hash].css',
-    }),
-    new HtmlWebpackPlugin({
-      template: commonPaths.template,
-      title: 'marketplace',
-      base: `${PUBLIC_URL}`,
-      filename: path.resolve(__dirname, commonPaths.templatesOutputServerPath, 'index.html'),
-      favicon: commonPaths.favicon,
-    }),
     new CleanWebpackPlugin({
       root: commonPaths.root,
     }),
@@ -99,10 +97,6 @@ const config = {
       patterns: [
         {
           from: commonPaths.favicon,
-          to: commonPaths.outputServerPath,
-        },
-        {
-          from: commonPaths.serviceWorker,
           to: commonPaths.outputServerPath,
         },
       ]

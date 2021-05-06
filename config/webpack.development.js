@@ -3,8 +3,8 @@ const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const MiniCssWebpackPlugin = require('mini-css-extract-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
 
 const commonPaths = require('./common-paths');
 
@@ -17,7 +17,7 @@ const config = {
     'react-hot-loader/patch',
   ],
   mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
   devServer: {
     contentBase: commonPaths.outputPath,
     compress: true,
@@ -39,7 +39,14 @@ const config = {
       filename: 'assets/css/[name].css',
       chunkFilename: 'assets/css/[id].css',
     }),
-    new ManifestPlugin({
+    new HtmlWebpackPlugin({
+      template: commonPaths.template,
+      base: URL_BASE,
+      title: 'marketplace',
+      filename: path.resolve(__dirname, commonPaths.outputPath, 'index.html'),
+      favicon: commonPaths.favicon,
+    }),
+    new WebpackManifestPlugin({
       publicPath: URL_BASE,
       seed: {
         name: "marketplace",
@@ -71,13 +78,6 @@ const config = {
         };
       },
     }),
-    new HtmlWebpackPlugin({
-      template: commonPaths.template,
-      base: URL_BASE,
-      title: 'marketplace',
-      filename: path.resolve(__dirname, commonPaths.outputPath, 'index.html'),
-      favicon: commonPaths.favicon,
-    }),
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -87,8 +87,6 @@ const config = {
       ]
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.NamedModulesPlugin(),
   ],
 };
 

@@ -58,17 +58,14 @@ const config = {
     // these rules handle styles
     {
       test: /\.css$/,
-      use: [
-        { loader: MiniCssWebpackPlugin.loader },
-        { loader: 'css-loader', options: { importLoaders: 1 } },
-      ],
+      use: [{ loader: MiniCssWebpackPlugin.loader }, { loader: 'css-loader', options: { importLoaders: 1 } }],
     },
     {
       test: /\.(scss|sass)$/,
       use: [
         { loader: MiniCssWebpackPlugin.loader },
         { loader: 'css-loader', options: { importLoaders: 1 } },
-        'sass-loader'
+        'sass-loader',
       ],
     },
     {
@@ -76,28 +73,43 @@ const config = {
       use: [
         { loader: MiniCssWebpackPlugin.loader },
         { loader: 'css-loader', options: { importLoaders: 1 } },
-        'less-loader'
+        'less-loader',
       ],
     },
 
     // this rule handles images
     {
       test: /\.jpe?g$|\.gif$|\.ico$|\.png$|\.svg$/,
-      use: 'file-loader?name=assets/fonts/[name].[hash].[ext]',
+      loader: 'file-loader',
+      options: {
+        name: 'assets/fonts/[name].[hash].[ext]',
+      },
     },
 
     // the following 3 rules handle font extraction
     {
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: 'url-loader?limit=10000&mimetype=application/font-woff&name=assets/fonts/[name].[hash].[ext]',
+      loader: 'url-loader',
+      options: {
+        limit: 10000,
+        mimetype: 'application/font-woff',
+        name: 'assets/fonts/[name].[hash].[ext]',
+      },
     },
     {
       test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: 'file-loader?name=assets/fonts/[name].[hash].[ext]',
+      loader: 'file-loader',
+      options: {
+        name: 'assets/fonts/[name].[hash].[ext]',
+      },
     },
     {
       test: /\.otf(\?.*)?$/,
-      use: 'file-loader?name=assets/fonts/[name].[ext]&mimetype=application/font-otf',
+      loader: 'file-loader',
+      options: {
+        mimetype: 'application/font-otf',
+        name: 'assets/fonts/[name].[ext]',
+      },
     }],
   },
   resolve: {
@@ -114,7 +126,6 @@ const config = {
     ],
   },
   plugins: [
-    new AsyncChunkNames(),
     new CleanWebpackPlugin({
       root: commonPaths.root,
     }),
