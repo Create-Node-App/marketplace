@@ -24,9 +24,5 @@ export const Markdown: FC<MarkdownProps> = ({ source = '' }) => {
 
   const html = marked(source);
 
-  return (
-    <div>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-    </div>
-  );
+  return <div dangerouslySetInnerHTML={{ __html: html }} />;
 };
