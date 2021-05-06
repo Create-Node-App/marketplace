@@ -1,4 +1,4 @@
-name: PR Validation
+name: Main Validation
 
 on: [push, pull_request]
 
