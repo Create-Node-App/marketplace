@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { FC, Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { FaSpinner } from 'react-icons/fa';
 
@@ -11,7 +11,7 @@ import AppRoutes from 'app/routes/AppRoutes';
 
 import 'app/i18n';
 
-const App = () => (
+const App: FC = () => (
   <Suspense
     fallback={
       <Loading>
