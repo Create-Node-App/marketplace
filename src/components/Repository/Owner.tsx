@@ -10,10 +10,10 @@ import Loading from 'app/components/Loading';
 export interface RepositoryOwnerProps {
   repository: RepositoryContent;
   isFetching: boolean;
-  error: Error | null;
+  error?: Error;
 }
 
-export const RepositoryOwner: FC<RepositoryOwnerProps> = ({ repository, isFetching, error }) => {
+export const RepositoryOwner: FC<RepositoryOwnerProps> = ({ repository, isFetching }) => {
   const { t } = useTranslation();
 
   if (isFetching) {

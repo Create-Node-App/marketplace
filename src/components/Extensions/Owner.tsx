@@ -21,9 +21,13 @@ export const ExtensionsOwner: FC<ExtensionsOwnerProps> = ({ repository }) => {
 
   return (
     <Owner>
-      <OwnerProfile>
-        <Link to={url}>{repository.img && <img src={repository.img} alt={repository.img} />}</Link>
-      </OwnerProfile>
+      {repository.img && (
+        <OwnerProfile>
+          <Link to={url}>
+            <img src={repository.img} alt={repository.img} />
+          </Link>
+        </OwnerProfile>
+      )}
       <RepoInfo>
         <h1>
           <Link to={url}>{repository.title}</Link>

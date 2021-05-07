@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled from 'styled-components';
 import { colorContrast } from 'app/helpers/color';
 
 export const Owner = styled.header`
