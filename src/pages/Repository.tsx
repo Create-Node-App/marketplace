@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { FC, useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { FaGithubAlt, FaSpinner } from 'react-icons/fa';
 
 import { useRepository, useIssues, useReadme } from 'app/hooks/git-hook';
@@ -10,8 +9,7 @@ import { RepositoryOwner } from 'app/components/Repository';
 import Loading from 'app/components/Loading';
 import { RepositoryIssues } from 'app/components/Repository/Issues';
 
-const RepositoryPage = () => {
-  const { t } = useTranslation();
+const RepositoryPage: FC = () => {
   const { source, repo } = useParams<{ source: 'github'; repo: string }>();
   const [filterIndex, setFilterIndex] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
@@ -24,8 +22,8 @@ const RepositoryPage = () => {
   const [repoName, branch] = decodeURIComponent(repo).split('@');
 
   const { repository, fetchRepository, error: repoError, isFetching: isFetchingRepo } = useRepository(source, repoName);
-  const { readme, fetchReadme, error: readmeError, isFetching: isFetchingReadme } = useReadme(source, repoName, branch);
   const { issues, fetchIssues, error: issuesError, isFetching: isFetchingIssues } = useIssues(source, repoName);
+  const { readme, fetchReadme } = useReadme(source, repoName, branch);
 
   useEffect(() => {
     fetchRepository && fetchRepository();
@@ -52,10 +50,6 @@ const RepositoryPage = () => {
     },
     [fetchIssues],
   );
-
-  const handleReadme = () => {
-    fetchReadme && fetchReadme();
-  };
 
   const handleFilter = (filterIndex: number) => {
     setFilterIndex(filterIndex);

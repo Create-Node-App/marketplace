@@ -1,28 +1,31 @@
 import React, { FC } from 'react';
-import marked from 'marked';
-import hljs from 'highlight.js';
+import ReactMarkdown from 'react-markdown';
+import { Components } from 'react-markdown/src/ast-to-react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import gfm from 'remark-gfm';
 
 export interface MarkdownProps {
   source?: string;
 }
 
 export const Markdown: FC<MarkdownProps> = ({ source = '' }) => {
-  marked.setOptions({
-    renderer: new marked.Renderer(),
-    highlight: (code: string, language: string) => {
-      const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
-      return hljs.highlight(validLanguage, code).value;
+  const components = {
+    code({ inline, className, children, ...props }) {
+      const match = /language-(\w+)/.exec(className || '');
+      return !inline && match ? (
+        <SyntaxHighlighter style={materialDark} language={match[1]} PreTag="div" {...props}>
+          {String(children).replace(/\n$/, '')}
+        </SyntaxHighlighter>
+      ) : (
+        <code className={className} {...props} />
+      );
     },
-    pedantic: false,
-    gfm: true,
-    breaks: true,
-    sanitize: false,
-    smartLists: true,
-    smartypants: false,
-    xhtml: false,
-  });
+  } as Components;
 
-  const html = marked(source);
-
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <ReactMarkdown components={components} remarkPlugins={[gfm]}>
+      {source}
+    </ReactMarkdown>
+  );
 };

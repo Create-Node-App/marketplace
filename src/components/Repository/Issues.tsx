@@ -16,7 +16,7 @@ export interface RepositoryIssuesProps {
   filterIndex: number;
   page: number;
   isFetching: boolean;
-  error: Error | null;
+  error?: Error;
   issues: RepositoryIssuesContent[];
 }
 

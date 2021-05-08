@@ -8,7 +8,7 @@ const REQUEST_TIMEOUT = undefined;
 export interface RequestData<T> {
   isFetching: boolean;
   data?: T;
-  error: Error | null;
+  error?: Error;
   fetch?: (config?: AxiosRequestConfig) => void;
 }
 
@@ -32,7 +32,7 @@ export interface Options<T> extends AxiosRequestConfig {
  */
 export const useRequest = <T>(options: Options<T> = {}, axiosConfig: AxiosRequestConfig = {}): RequestData<T> => {
   const [data, setData] = useState<T | undefined>(options.initialValue);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<Error | undefined>();
   const [isFetching, setFetching] = useState<boolean>(false);
 
   const { axios, initialized: axiosInitialized } = useAxios({
@@ -55,7 +55,7 @@ export const useRequest = <T>(options: Options<T> = {}, axiosConfig: AxiosReques
 
     const fetchData = async () => {
       setFetching(true);
-      setError(null);
+      setError(undefined);
 
       try {
         const response = await axios({ ...options, ...requestParams });
