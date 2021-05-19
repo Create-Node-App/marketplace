@@ -55,7 +55,7 @@ export const useRequest = <T>(options: Options<T> = {}, axiosConfig: AxiosReques
 
     const fetchData = async () => {
       setFetching(true);
-      setError(null);
+      setError(undefined);
 
       try {
         const response = await axios({ ...options, ...requestParams });
