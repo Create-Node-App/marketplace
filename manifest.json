@@ -13,7 +13,7 @@
     ],
     "background_color": "#4e0041",
     "theme_color": "#4e0041",
-    "main.js": "assets/js/main.d310eefd.bundle.js",
+    "main.js": "assets/js/main.c7163859.bundle.js",
     "assets/js/405.956b46fd.bundle.js": "assets/js/405.956b46fd.bundle.js",
     "favicon.ico": "favicon.ico",
     "index.html": "index.html",
@@ -21,6 +21,6 @@
   },
   "entrypoints": [
     "assets/js/405.956b46fd.bundle.js",
-    "assets/js/main.d310eefd.bundle.js"
+    "assets/js/main.c7163859.bundle.js"
   ]
 }
