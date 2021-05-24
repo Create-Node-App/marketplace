@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Home from 'app/pages/Home';
-import Repository from 'app/pages/Repository';
+import Home from 'pages/Home';
+import Repository from 'pages/Repository';
 
 const AppRoutes = () => (
   <Switch>

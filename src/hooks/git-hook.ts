@@ -1,4 +1,4 @@
-import { useRequest } from 'app/hooks/request-hook';
+import { useRequest } from 'hooks/request-hook';
 
 const GITHUB_API = 'https://api.github.com';
 

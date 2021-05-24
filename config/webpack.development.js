@@ -9,7 +9,7 @@ const MiniCssWebpackPlugin = require('mini-css-extract-plugin');
 const commonPaths = require('./common-paths');
 
 const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 8091;
+const PORT = process.env.PORT || 3000;
 const URL_BASE = process.env.URL_BASE || `http://${HOST}:${PORT}`;
 
 const config = {

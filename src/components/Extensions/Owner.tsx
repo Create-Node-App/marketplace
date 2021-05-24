@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegFileAlt } from 'react-icons/fa';
-import { RepositoryContent } from 'app/hooks/market-hook';
-import { Owner, OwnerProfile, RepoInfo } from 'app/components/Repository/Repository.styled';
+import { RepositoryContent } from 'hooks/market-hook';
+import { Owner, OwnerProfile, RepoInfo } from 'components/Repository/Repository.styled';
 
 const repoUrl = (repository: RepositoryContent) => {
   if (repository.branch) {

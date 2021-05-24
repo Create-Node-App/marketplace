@@ -28,7 +28,7 @@ While developing, you will probably rely mostly on `yarn start`; however, there 
 
 | `yarn <script>`       | Description                                                                                                             |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `start`               | Serves your app at `localhost:8091`                                                                                     |
+| `start`               | Serves your app at `localhost:3000`                                                                                     |
 | `build:dev`           | Builds the application to ./build (_the build output dir could be configured in `./config/common-paths.js`_)            |
 | `build:dev:watch`     | Builds the application and watch for changes                                                                            |
 | `build:dev:analyze`   | Builds the application with Bundle Analyzer and Visualizer Plugins instaled                                             |

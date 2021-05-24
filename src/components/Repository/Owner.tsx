@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FaRegFileAlt, FaStar, FaSpinner } from 'react-icons/fa';
 import { GoArrowLeft, GoRepoForked } from 'react-icons/go';
-import { RepositoryContent } from 'app/hooks/git-hook';
-import { Owner, OwnerProfile, RepoInfo } from 'app/components/Repository/Repository.styled';
-import Loading from 'app/components/Loading';
+import { RepositoryContent } from 'hooks/git-hook';
+import { Owner, OwnerProfile, RepoInfo } from 'components/Repository/Repository.styled';
+import Loading from 'components/Loading';
 
 export interface RepositoryOwnerProps {
   repository: RepositoryContent;

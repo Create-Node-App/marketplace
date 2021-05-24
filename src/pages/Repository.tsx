@@ -3,12 +3,12 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FaGithubAlt, FaSpinner } from 'react-icons/fa';
 
-import { useRepository, useIssues, useReadme } from 'app/hooks/git-hook';
-import Layout, { Icon } from 'app/components/Layout';
-import { Markdown } from 'app/components/Markdown';
-import { RepositoryOwner } from 'app/components/Repository';
-import Loading from 'app/components/Loading';
-import { RepositoryIssues } from 'app/components/Repository/Issues';
+import { useRepository, useIssues, useReadme } from 'hooks/git-hook';
+import Layout, { Icon } from 'components/Layout';
+import { Markdown } from 'components/Markdown';
+import { RepositoryOwner } from 'components/Repository';
+import Loading from 'components/Loading';
+import { RepositoryIssues } from 'components/Repository/Issues';
 
 const RepositoryPage = () => {
   const { t } = useTranslation();

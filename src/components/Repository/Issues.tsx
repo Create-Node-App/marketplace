@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaSpinner } from 'react-icons/fa';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
-import { RepositoryIssuesContent } from 'app/hooks/git-hook';
-import { IssueList, FilterList, IssueLabel, PageNav } from 'app/components/Repository/Repository.styled';
-import Loading from 'app/components/Loading';
+import { RepositoryIssuesContent } from 'hooks/git-hook';
+import { IssueList, FilterList, IssueLabel, PageNav } from 'components/Repository/Repository.styled';
+import Loading from 'components/Loading';
 
 export interface RepositoryIssuesProps {
   onFilterChange: (index: number) => void;

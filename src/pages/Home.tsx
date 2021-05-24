@@ -1,12 +1,12 @@
 import React, { useEffect, useState, ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaGithubAlt, FaSpinner, FaSearch } from 'react-icons/fa';
-import { filterByValue } from 'app/helpers/array';
-import { useMarketplaceContent, RepositoryContent } from 'app/hooks/market-hook';
-import { Loading } from 'app/components/Loading';
-import { Form, SubmitButton, List, ErrorMessage } from 'app/components/Extensions/Form.styled';
-import { ExtensionsOwner } from 'app/components/Extensions';
-import Layout, { Icon } from 'app/components/Layout';
+import { filterByValue } from 'helpers/array';
+import { useMarketplaceContent, RepositoryContent } from 'hooks/market-hook';
+import { Loading } from 'components/Loading';
+import { Form, SubmitButton, List, ErrorMessage } from 'components/Extensions/Form.styled';
+import { ExtensionsOwner } from 'components/Extensions';
+import Layout, { Icon } from 'components/Layout';
 
 const HomePage = () => {
   const { t } = useTranslation();

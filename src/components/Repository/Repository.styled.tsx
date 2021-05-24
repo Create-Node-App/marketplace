@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colorContrast } from 'app/helpers/color';
+import { colorContrast } from 'helpers/color';
 
 export const Owner = styled.header`
   display: flex;

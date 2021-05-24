@@ -4,10 +4,10 @@ import { FaSpinner } from 'react-icons/fa';
 
 import 'app/theme';
 
-import Loading from 'app/components/Loading';
-import MomentLocale from 'app/components/MomentLocale';
-import GlobalStyles from 'app/components/GlobalStyles';
-import AppRoutes from 'app/routes/AppRoutes';
+import Loading from 'components/Loading';
+import MomentLocale from 'components/MomentLocale';
+import GlobalStyles from 'components/GlobalStyles';
+import AppRoutes from 'routes/AppRoutes';
 
 const App: FC = () => (
   <Suspense

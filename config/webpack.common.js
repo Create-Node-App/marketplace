@@ -121,7 +121,7 @@ const config = {
       heading: path.resolve(__dirname, '../', 'src/semantic/heading.less'),
     },
     modules: [
-      'src',
+      '.',
       'node_modules',
     ],
   },

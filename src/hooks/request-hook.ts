@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { AxiosRequestConfig } from 'axios';
 
-import { useAxios } from 'app/hooks/axios-hook';
+import { useAxios } from './axios-hook';
 
 const REQUEST_TIMEOUT = undefined;
 
