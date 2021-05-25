@@ -13,11 +13,11 @@
     ],
     "background_color": "#4e0041",
     "theme_color": "#4e0041",
-    "main.js": "assets/js/main.6bbb7d7e.bundle.js",
-    "assets/js/405.d38807dc.bundle.js": "assets/js/405.d38807dc.bundle.js",
-    "favicon.ico": "favicon.ico",
-    "index.html": "index.html",
-    "locales/en/translations.json": "locales/en/translations.json"
+    "main.js": "/marketplaceassets/js/main.6bbb7d7e.bundle.js",
+    "assets/js/405.d38807dc.bundle.js": "/marketplaceassets/js/405.d38807dc.bundle.js",
+    "favicon.ico": "/marketplacefavicon.ico",
+    "index.html": "/marketplaceindex.html",
+    "locales/en/translations.json": "/marketplacelocales/en/translations.json"
   },
   "entrypoints": [
     "assets/js/405.d38807dc.bundle.js",
