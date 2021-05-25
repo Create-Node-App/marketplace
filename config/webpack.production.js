@@ -11,6 +11,8 @@ const Dotenv = require('dotenv-webpack');
 const commonPaths = require('./common-paths');
 const PUBLIC_URL = process.env.PUBLIC_URL || require("../package.json").homepage || '';
 
+console.log(`Building using homepage: ${PUBLIC_URL}`);
+
 const config = {
   output: {
     filename: 'assets/js/[name].[chunkhash:8].bundle.js',
