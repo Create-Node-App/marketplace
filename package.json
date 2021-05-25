@@ -23,7 +23,7 @@
     "build:analyze": "yarn build --env.addon=bundleanalyze --env.addon=bundlevisualizer",
     "lint": "prettier --ignore-path .eslintignore --check \"**/*.{js,jsx,ts,tsx,json,css,sass,scss,less,html,md}\" && eslint ./src",
     "lint:fix": "prettier --ignore-path .eslintignore --write \"**/*.{js,jsx,ts,tsx,json,css,sass,scss,less,html,md}\" && eslint ./src --fix",
-    "serve:dev": "webpack-dev-server --mode development --open --hot --env.env=development",
+    "serve:dev": "webpack-dev-server --mode development --open --env.env=development",
     "serve:dev:dashboard": "webpack-dashboard webpack-dev-server -- --mode development --env.addon=dashboard",
     "start": "yarn serve:dev",
     "serve": "yarn build && serve -s -C build",
