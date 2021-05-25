@@ -30,6 +30,12 @@ jobs:
       - name: Install dependencies without generating a lockfile and fail if an update is needed
         run: yarn --frozen-lockfile
 
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          PUBLIC_URL: /marketplace
+          file_name: .env.production
+
       - name: Build page
         run: yarn build
         env:

@@ -48,9 +48,9 @@ const HomePage = () => {
       )}
 
       <List>
-        {filteredRepositories.map((repository: RepositoryContent) => {
+        {filteredRepositories.map((repository: RepositoryContent, i) => {
           return (
-            <li key={`${repository.name}&${repository.branch}`}>
+            <li key={`repo-${i + 1}`}>
               <ExtensionsOwner repository={repository} />
             </li>
           );
