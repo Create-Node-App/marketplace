@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { FC, useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { FaGithubAlt, FaSpinner } from 'react-icons/fa';
 
@@ -16,7 +16,7 @@ type Params = {
   subdir: string;
 };
 
-const RepositoryPage = () => {
+const RepositoryPage: FC<void> = () => {
   const { source, repo, branch, subdir } = useParams<Params>();
   const [filterIndex, setFilterIndex] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
