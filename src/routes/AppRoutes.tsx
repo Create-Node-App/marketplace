@@ -7,7 +7,7 @@ import Repository from 'pages/Repository';
 const AppRoutes = () => (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route path="/:source/:repo" component={Repository} />
+    <Route path="/:source/:repo/:branch?/:subdir?" component={Repository} />
   </Switch>
 );
 

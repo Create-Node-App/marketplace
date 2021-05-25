@@ -57,11 +57,11 @@ export const useRepository = (source: 'github', name: string) => {
   };
 };
 
-export const useReadme = (source: 'github', name: string, branch = 'master') => {
+export const useReadme = (source: 'github', name: string, branch = 'main', subdir = '') => {
   const { isFetching, data, error, fetch } = useRequest<string>({
     initialValue: '',
     baseURL: BASE_URL[source],
-    url: `${name}/${branch}/README.md`,
+    url: subdir === '' ? `${name}/${branch}/README.md` : `${name}/${branch}/${subdir}/README.md`,
   });
 
   return {

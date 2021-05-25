@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { FaGithubAlt, FaSpinner } from 'react-icons/fa';
 
 import { useRepository, useIssues, useReadme } from 'hooks/git-hook';
@@ -10,9 +9,15 @@ import { RepositoryOwner } from 'components/Repository';
 import Loading from 'components/Loading';
 import { RepositoryIssues } from 'components/Repository/Issues';
 
+type Params = {
+  source: 'github';
+  repo: string;
+  branch: string;
+  subdir: string;
+};
+
 const RepositoryPage = () => {
-  const { t } = useTranslation();
-  const { source, repo } = useParams<{ source: 'github'; repo: string }>();
+  const { source, repo, branch, subdir } = useParams<Params>();
   const [filterIndex, setFilterIndex] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
   const filters = [
@@ -21,10 +26,11 @@ const RepositoryPage = () => {
     { state: 'closed', label: 'closed', active: false },
   ];
 
-  const [repoName, branch] = decodeURIComponent(repo).split('@');
+  const repoName = decodeURIComponent(repo);
+  const branchName = decodeURIComponent(branch);
 
   const { repository, fetchRepository, error: repoError, isFetching: isFetchingRepo } = useRepository(source, repoName);
-  const { readme, fetchReadme, error: readmeError, isFetching: isFetchingReadme } = useReadme(source, repoName, branch);
+  const { readme, fetchReadme } = useReadme(source, repoName, branchName, subdir);
   const { issues, fetchIssues, error: issuesError, isFetching: isFetchingIssues } = useIssues(source, repoName);
 
   useEffect(() => {

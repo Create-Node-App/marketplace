@@ -8,6 +8,7 @@ export interface RepositoryContent {
   description?: string;
   name: string;
   branch?: string;
+  subdir?: string;
   source?: 'github' | 'gitlab' | 'bitbucket';
   img?: string;
   license?: string;

@@ -5,11 +5,16 @@ import { RepositoryContent } from 'hooks/market-hook';
 import { Owner, OwnerProfile, RepoInfo } from 'components/Repository/Repository.styled';
 
 const repoUrl = (repository: RepositoryContent) => {
+  let url = `/${repository.source}/${encodeURIComponent(repository.name)}`;
   if (repository.branch) {
-    return `/${repository.source}/${encodeURIComponent(`${repository.name}@${repository.branch}`)}`;
+    url = `${url}/${encodeURIComponent(repository.branch)}`;
   }
 
-  return `/${repository.source}/${encodeURIComponent(repository.name)}`;
+  if (repository.subdir) {
+    url = `${url}/${encodeURIComponent(repository.subdir)}`;
+  }
+
+  return url;
 };
 
 export interface ExtensionsOwnerProps {
