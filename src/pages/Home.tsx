@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent } from 'react';
+import React, { FC, useEffect, useState, ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaGithubAlt, FaSpinner, FaSearch } from 'react-icons/fa';
 import { filterByValue } from 'helpers/array';
@@ -8,7 +8,7 @@ import { Form, SubmitButton, List, ErrorMessage } from 'components/Extensions/Fo
 import { ExtensionsOwner } from 'components/Extensions';
 import Layout, { Icon } from 'components/Layout';
 
-const HomePage = () => {
+const HomePage: FC = () => {
   const { t } = useTranslation();
   const [filter, setFilter] = useState<string>('');
 

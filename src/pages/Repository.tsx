@@ -16,7 +16,7 @@ type Params = {
   subdir: string;
 };
 
-const RepositoryPage: FC<void> = () => {
+const RepositoryPage: FC = () => {
   const { source, repo, branch, subdir } = useParams<Params>();
   const [filterIndex, setFilterIndex] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
