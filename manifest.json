@@ -13,14 +13,14 @@
     ],
     "background_color": "#4e0041",
     "theme_color": "#4e0041",
-    "main.js": "assets/js/main.c7163859.bundle.js",
-    "assets/js/405.956b46fd.bundle.js": "assets/js/405.956b46fd.bundle.js",
+    "main.js": "assets/js/main.6bbb7d7e.bundle.js",
+    "assets/js/405.d38807dc.bundle.js": "assets/js/405.d38807dc.bundle.js",
     "favicon.ico": "favicon.ico",
     "index.html": "index.html",
     "locales/en/translations.json": "locales/en/translations.json"
   },
   "entrypoints": [
-    "assets/js/405.956b46fd.bundle.js",
-    "assets/js/main.c7163859.bundle.js"
+    "assets/js/405.d38807dc.bundle.js",
+    "assets/js/main.6bbb7d7e.bundle.js"
   ]
 }
