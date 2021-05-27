@@ -9,6 +9,7 @@ export interface RepositoryContent {
   name: string;
   branch?: string;
   subdir?: string;
+  topic?: string[];
   source?: 'github' | 'gitlab' | 'bitbucket';
   img?: string;
   license?: string;
