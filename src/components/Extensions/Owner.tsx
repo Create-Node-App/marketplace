@@ -43,6 +43,9 @@ export const ExtensionsOwner: FC<ExtensionsOwnerProps> = ({ repository }) => {
               <FaRegFileAlt /> {repository.license}
             </span>
           )}
+          {Array.from(repository.topic || []).map((topic, i) => (
+            <span key={`topic-${i + 1}`}>{topic}</span>
+          ))}
         </div>
         <p>{repository.description}</p>
       </RepoInfo>

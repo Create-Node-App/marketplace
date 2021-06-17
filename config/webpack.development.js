@@ -17,7 +17,7 @@ const prettyHost = isUnspecifiedHost ? 'localhost' : HOST;
 const config = {
   entry: ['react-hot-loader/patch'],
   mode: 'development',
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: commonPaths.outputPath,
     compress: true,
