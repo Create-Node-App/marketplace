@@ -20,7 +20,7 @@ const App: FC = () => (
     <>
       <GlobalStyles />
       <MomentLocale />
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <AppRoutes />
       </BrowserRouter>
     </>
