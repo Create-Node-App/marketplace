@@ -22,7 +22,7 @@ const config = {
   },
   mode: 'production',
   optimization: {
-    noEmitOnErrors: true,
+    emitOnErrors: false,
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
@@ -41,7 +41,7 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'PUBLIC_URL': JSON.stringify(PUBLIC_URL),
+      PUBLIC_URL: JSON.stringify(PUBLIC_URL),
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production', // use 'production' unless process.env.NODE_ENV is defined

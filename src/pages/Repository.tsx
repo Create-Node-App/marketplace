@@ -59,10 +59,6 @@ const RepositoryPage: FC = () => {
     [fetchIssues],
   );
 
-  const handleReadme = () => {
-    fetchReadme && fetchReadme();
-  };
-
   const handleFilter = (filterIndex: number) => {
     setFilterIndex(filterIndex);
     loadFilters(filterIndex, page);

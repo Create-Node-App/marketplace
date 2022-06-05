@@ -1,9 +1,9 @@
-FROM node:12.14 as development
+FROM node:16.13 as development
 WORKDIR /usr/src/app
 COPY . .
 RUN yarn
 EXPOSE 3000
-CMD [ "yarn", "serve:dev" ]
+CMD [ "yarn", "start" ]
 
 
 FROM development as builder

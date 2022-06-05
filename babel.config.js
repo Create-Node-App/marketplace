@@ -17,12 +17,9 @@ module.exports = {
     '@babel/plugin-proposal-object-rest-spread',
     'react-hot-loader/babel',
     [
-      'module-resolver',
+      'babel-plugin-webpack-alias',
       {
-        root: ['.'],
-        alias: {
-          app: './src',
-        },
+        config: '${PWD}/webpack.config.js',
       },
     ],
   ],

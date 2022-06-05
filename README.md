@@ -74,17 +74,16 @@ $ npm run serve
 │   ├── components           # Global Reusable Components
 │   ├── pages                # Components associated with routes
 │   ├── routes               # Main route definitions and async split points
-│   │   └── AppRoutes.tsx    # Bootstrap main application routes
+│   │   └── AppRoutes.jsx    # Bootstrap main application routes
 │   ├── theme                # Application-wide styles and theme
 |   ├── ...
-|   ├── i18n.ts              # i18n configuration
-|   ├── index.tsx            # Application bootstrap and rendering with store
+|   ├── index.jsx            # Application bootstrap and rendering with store
 └── static                   # Static public assets imported anywhere in source code
 ```
 
 ## Testing
 
-To add a unit test, create a `.test.ts` file anywhere inside of `./test`. Jest and webpack will automatically find these files.
+To add a unit test, create a `.test.js` file anywhere inside of `./test`. Jest and webpack will automatically find these files.
 
 ## More info
 
