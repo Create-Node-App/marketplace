@@ -13,14 +13,15 @@
     ],
     "background_color": "#4e0041",
     "theme_color": "#4e0041",
-    "main.js": "/marketplace/assets/js/main.c2cf4748.bundle.js",
-    "assets/js/405.d38807dc.bundle.js": "/marketplace/assets/js/405.d38807dc.bundle.js",
+    "main.js": "/marketplace/assets/js/main.a6eedd76.bundle.js",
+    "assets/js/131.361350b6.js": "/marketplace/assets/js/131.361350b6.js",
+    "assets/js/638.32621a97.bundle.js": "/marketplace/assets/js/638.32621a97.bundle.js",
     "favicon.ico": "/marketplace/favicon.ico",
     "index.html": "/marketplace/index.html",
     "locales/en/translations.json": "/marketplace/locales/en/translations.json"
   },
   "entrypoints": [
-    "assets/js/405.d38807dc.bundle.js",
-    "assets/js/main.c2cf4748.bundle.js"
+    "assets/js/638.32621a97.bundle.js",
+    "assets/js/main.a6eedd76.bundle.js"
   ]
 }
