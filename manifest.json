@@ -13,7 +13,7 @@
     ],
     "background_color": "#4e0041",
     "theme_color": "#4e0041",
-    "main.js": "/marketplace/assets/js/main.ff52c17f.bundle.js",
+    "main.js": "/marketplace/assets/js/main.a6eedd76.bundle.js",
     "assets/js/131.361350b6.js": "/marketplace/assets/js/131.361350b6.js",
     "assets/js/638.32621a97.bundle.js": "/marketplace/assets/js/638.32621a97.bundle.js",
     "favicon.ico": "/marketplace/favicon.ico",
@@ -22,6 +22,6 @@
   },
   "entrypoints": [
     "assets/js/638.32621a97.bundle.js",
-    "assets/js/main.ff52c17f.bundle.js"
+    "assets/js/main.a6eedd76.bundle.js"
   ]
 }
