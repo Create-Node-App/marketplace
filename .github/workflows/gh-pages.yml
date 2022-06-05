@@ -16,7 +16,7 @@ jobs:
       - name: Use Node ${{ matrix.node-version }}
         uses: actions/setup-node@v2-beta
         with:
-          node-version: '12.18.0'
+          node-version: '16.13.1'
 
       - name: Use cached node_modules
         uses: actions/cache@v1
