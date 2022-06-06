@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import marked from 'marked';
+import { marked } from 'marked';
 import hljs from 'highlight.js';
 
 export interface MarkdownProps {

@@ -6,8 +6,8 @@ import Repository from 'pages/Repository';
 
 const AppRoutes = () => (
   <Routes>
-    <Route path="/:source/:repo/:branch?/:subdir?" element={<Repository />} />
     <Route path="/" element={<Home />} />
+    <Route path="/:source/:repo/:branch/:subdir" element={<Repository />} />
   </Routes>
 );
 
