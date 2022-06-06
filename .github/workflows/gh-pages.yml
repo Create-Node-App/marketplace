@@ -36,13 +36,10 @@ jobs:
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v1
         with:
-          PUBLIC_URL: /marketplace
           file_name: .env.production
 
       - name: Build page
         run: yarn build
-        env:
-          PUBLIC_URL: /marketplace
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
