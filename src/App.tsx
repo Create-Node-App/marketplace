@@ -20,7 +20,7 @@ const App: FC = () => (
     <>
       <GlobalStyles />
       <MomentLocale />
-      <HashRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <AppRoutes />
       </HashRouter>
     </>
