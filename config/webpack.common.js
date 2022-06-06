@@ -2,13 +2,13 @@ const webpack = require('webpack');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssWebpackPlugin = require('mini-css-extract-plugin')
+const MiniCssWebpackPlugin = require('mini-css-extract-plugin');
 
 const commonPaths = require('./common-paths');
 
 const config = {
   context: commonPaths.context,
-  entry: ['babel-polyfill', ...commonPaths.entryPoints],
+  entry: [...commonPaths.entryPoints],
   output: {
     filename: 'assets/js/[name].[hash:8].bundle.js',
     path: commonPaths.outputPath,
@@ -29,7 +29,14 @@ const config = {
       {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
+        loader: 'esbuild-loader',
+        options: {
+          // All options are optional
+          loader: 'tsx',
+          target: 'es2015', // default, or 'es20XX', 'esnext'
+          jsxFactory: 'React.createElement',
+          jsxFragment: 'React.Fragment',
+        },
       },
 
       // these rules handle styles
