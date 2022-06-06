@@ -1,5 +1,5 @@
 import React, { FC, Suspense } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { FaSpinner } from 'react-icons/fa';
 
 import 'theme';
@@ -20,9 +20,9 @@ const App: FC = () => (
     <>
       <GlobalStyles />
       <MomentLocale />
-      <BrowserRouter>
+      <HashRouter basename={process.env.PUBLIC_URL}>
         <AppRoutes />
-      </BrowserRouter>
+      </HashRouter>
     </>
   </Suspense>
 );
