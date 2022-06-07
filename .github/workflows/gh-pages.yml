@@ -1,11 +1,15 @@
-name: Deployment
+name: Deployment to GitHub Pages
+
 on:
   push:
     branches:
       - master
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    concurrency: gh-pages
 
     steps:
       - name: Begin CI...
