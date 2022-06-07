@@ -135,6 +135,7 @@
     "webpack-hot-middleware": "^2.25.1",
     "webpack-manifest-plugin": "^5.0.0",
     "webpack-merge": "^5.8.0",
-    "webpack-visualizer-plugin": "^0.1.11"
+    "webpack-visualizer-plugin": "^0.1.11",
+    "webpack-visualizer-plugin2": "^1.0.0"
   }
 }
